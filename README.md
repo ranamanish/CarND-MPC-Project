@@ -9,12 +9,17 @@ Self-Driving Car Engineer Nanodegree Program
  - **The Model**
        I have used Kinematic Model as described in the lectures. State of vehicle is defined by vehicle's X, Y position, orientation angle, cross track error and orientation error.  Actuators were also used to extend the model, which included normalized steering angle and acceleration or breaking. Following equations were used to calculate current state of vehicle based on following equations:
 
-    <x[t] = x[t-1] + v[t-1] * cos(psi[t-1]) * dt
+    x[t] = x[t-1] + v[t-1] * cos(psi[t-1]) * dt
+    
     y[t] = y[t-1] + v[t-1] * sin(psi[t-1]) * dt
+    
     psi[t] = psi[t-1] + v[t-1] / Lf * delta[t-1] * dt
+    
     v[t] = v[t-1] + a[t-1] * dt
+    
     cte[t] = f(x[t-1]) - y[t-1] + v[t-1] * sin(epsi[t-1]) * dt
-    epsi[t] = psi[t] - psides[t-1] + v[t-1] * delta[t-1] / Lf * dt>
+    
+    epsi[t] = psi[t] - psides[t-1] + v[t-1] * delta[t-1] / Lf * dt
 
  - N and dt were selected to be 10 and 0.1 respectively. This was based on the inputs suggested during the lectures. As described that its good to predict CARs trajectory for 1 sec. Slight change in N and dt resulted in very random behavior.
 
